@@ -1,0 +1,49 @@
+import Link from "next/link";
+
+export default function LoginPage() {
+  return (
+    <section className="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-10">
+      <div className="w-full max-w-2xl bg-white rounded-2xl shadow-sm p-6 sm:p-10 md:p-14">
+        <h1 className="text-3xl font-semibold text-black mb-10">
+          Hi, Welcome back!
+        </h1>
+
+        <form className="space-y-6">
+          <input
+            type="text"
+            placeholder="Username or Email Address"
+            className="w-full h-14 border border-gray-300 rounded-md px-5 outline-none focus:border-emerald-500"
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+            className="w-full h-14 border border-gray-300 rounded-md px-5 outline-none focus:border-emerald-500"
+          />
+
+          <div className="flex items-center justify-between gap-4 text-sm sm:text-base">
+            <label className="flex items-center gap-3 text-black cursor-pointer">
+              <input type="checkbox" className="w-5 h-5" />
+              Keep me signed in
+            </label>
+
+            <Link href="/forgot-password" className="text-gray-500 hover:text-emerald-600">
+              Forgot Password?
+            </Link>
+          </div>
+
+          <button className="w-full h-14 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white text-2xl font-medium transition">
+            Sign In
+          </button>
+        </form>
+
+        <p className="text-center mt-8 text-lg text-gray-700">
+          Don&apos;t have an account?{" "}
+          <Link href="/register" className="text-emerald-600 font-medium hover:underline">
+            Register Now
+          </Link>
+        </p>
+      </div>
+    </section>
+  );
+}

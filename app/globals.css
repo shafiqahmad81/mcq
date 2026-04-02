@@ -1,26 +1,58 @@
 @import "tailwindcss";
 
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
-}
+} */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-mono: var(--font-geist-mono); 
+
+
+  --color-primary: #2563eb;
+  --color-secondary: #ec4899;
+  --color-dark: #000000;
+  --color-light: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+
+body {
+
+  font-family:  var(--font-mono), serif;
+
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  width: 100%;
+
+  @media (min-width: 82rem) {
+    max-width: 82rem;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base{
+    h1,h2,h3,h4,h5,h6{
+        font-family: var(--font-mono), serif;
+        /* @apply text-title */
+    }
+
+    h1{
+        @apply text-2xl sm:text-3xl lg:text-4xl lg:leading-12 font-bold 
+    }
+    h2{
+        @apply text-2xl lg:text-[32px] lg:leading-10 font-semibold 
+    }
+    h3{
+        @apply text-xl lg:text-2xl lg:leading-8 font-semibold 
+    }
+    h4{
+        @apply text-lg lg:text-xl lg:leading-7 font-semibold 
+    }
+    h5{
+        @apply text-sm sm:text-base lg:leading-6 font-semibold
+    }
 }
