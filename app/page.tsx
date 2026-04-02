@@ -1,4 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
+import Image1 from "../assets/image/image1.jpg"
+import CourseCard from "@/components/course/CourseCard";
 
 const categories = [
   "প্রিলি প্রস্তুতি",
@@ -12,9 +15,9 @@ const categories = [
 ];
 
 const courses = [
-  { title: "বাংলা মডেল টেস্ট ১", price: "৳30" },
-  { title: "English Grammar Model Test", price: "৳50" },
-  { title: "বাংলাদেশ বিষয়াবলী", price: "৳100" },
+  { title: "React Basics", price: "$49", image: Image1, link: "/checkout/react-basics" },
+  { title: "Next.js Advanced", price: "$69", image: Image1, link: "/checkout/nextjs-advanced" },
+  { title: "Javascript Advanced", price: "$50", image: Image1, link: "/checkout/javascript-advanced" },
 ];
 
 export default function HomePage() {
@@ -50,16 +53,13 @@ export default function HomePage() {
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           {courses.map((course, i) => (
-            <div key={i} className="border rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
-              <div className="h-48 bg-gray-100"></div>
-              <div className="p-5">
-                <h3 className="font-semibold mb-3">{course.title}</h3>
-                <div className="flex justify-between items-center">
-                  <span className="font-bold text-blue-600">{course.price}</span>
-                  <button className="bg-red-500 text-white px-4 py-2 rounded-xl">Purchase</button>
-                </div>
-              </div>
-            </div>
+            <CourseCard
+              key={i}
+              title={course.title}
+              price={course.price}
+              imageSrc={course.image}
+              purchaseLink={course.link}
+            />
           ))}
         </div>
       </section>
