@@ -36,7 +36,7 @@ export default function ForgotPassword() {
           {/* Button */}
           <button
             type="submit"
-            className="w-full h-14 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md font-semibold shadow transition"
+            className="w-full py-2 sm:py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md font-semibold shadow transition cursor-pointer"
           >
             Send Reset Link
           </button>

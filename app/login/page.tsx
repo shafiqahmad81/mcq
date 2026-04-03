@@ -32,19 +32,19 @@ export default function LoginPage() {
               Keep me signed in
             </label>
 
-            <Link href="forgetpassword" className="text-gray-500 hover:text-emerald-600">
+            <Link href="forgetpassword" className="text-gray-500 hover:text-emerald-600 hover:underline">
               Forgot Password?
             </Link>
           </div>
 
-          <button className="w-full h-14 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white text-2xl font-medium transition">
+          <button type="submit" className="w-full py-2 sm:py-3 rounded-md bg-blue-600 hover:bg-blue-700 text-white text-2xl font-medium transition cursor-pointer">
             Sign In
           </button>
         </form>
 
         <p className="text-center mt-8 text-lg text-gray-700">
           Don&apos;t have an account?{" "}
-          <Link href="/register" className="text-emerald-600 font-medium hover:underline">
+          <Link href="/register" className="text-emerald-600 font-medium hover:underline cursor-pointer">
             Register Now
           </Link>
         </p>

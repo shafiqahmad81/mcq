@@ -1,4 +1,5 @@
 import PasswordInput from "@/components/input/PasswordInput";
+import Link from "next/link";
 
 export default function RegisterPage() {
   return (
@@ -79,15 +80,24 @@ export default function RegisterPage() {
             />
           </div>
 
-          
+          <div className="flex items-center gap-2">
+            <input type="checkbox" id="terms" />
+            <label htmlFor="terms">I agree to <Link className="text-blue-600 hover:underline" href={"trems"}>Terms & Conditions</Link></label>
+          </div>
 
           {/* Button */}
           <button
             type="submit"
-            className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition cursor-pointer"
+            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition cursor-pointer"
           >
             Register
           </button>
+          <p className="text-center text-lg text-gray-700">
+            I have an account?{" "}
+            <Link href="/login" className="text-emerald-600 font-medium hover:underline cursor-pointer">
+              Login Now
+            </Link>
+          </p>
         </form>
       </div>
     </div>
