@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white mt-20">
+    <footer className="bg-black text-white mt-2.5 sm:mt-5 md:mt-10">
       <div className="max-w-7xl mx-auto px-4 py-12 grid md:grid-cols-4 gap-8">
         <div>
           <h3 className="text-2xl font-bold text-pink-400 mb-3">MCQ Master</h3>
@@ -13,11 +13,11 @@ export default function Footer() {
 
         <div>
           <h4 className="font-semibold mb-3 text-blue-400">Quick Links</h4>
-          <div className="space-y-2 text-sm">
-            <Link href="/">Home</Link><br />
-            <Link href="/mcq">MCQ</Link><br />
-            <Link href="/result">Result</Link><br />
-            <Link href="/contact">Contact</Link>
+          <div className="space-y-2 text-sm flex flex-col">
+            <Link className="inline-block" href="/">Home</Link>
+            <Link className="inline-block" href="mcq">MCQ</Link>
+            <Link className="inline-block" href="result">Result</Link>
+            <Link className="inline-block" href="contact">Contact</Link>
           </div>
         </div>
 

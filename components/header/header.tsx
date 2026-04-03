@@ -1,7 +1,7 @@
 import Link from "next/link";
 import MobileMenu from "../mobile-menu/MobileMenu";
 
-export default function Navbar() {
+export default function Header() {
   const links = [
     ["Home", "/"],
     ["MCQ", "/mcq"],
@@ -12,9 +12,9 @@ export default function Navbar() {
   ];
 
   return (
-    <div className="sticky top-0 z-50">
+    <div className="sticky top-0 z-50 bg-white ">
         <div className="container">
-                <nav className="border-b border-gray-200 bg-white sticky top-0 z-50">
+                <nav className="border-b border-gray-200">
                     <div className="px-4 py-4 flex justify-between items-center">
                         
                         {/* Logo */}

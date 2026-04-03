@@ -1,3 +1,5 @@
+import PasswordInput from "@/components/input/PasswordInput";
+
 export default function RegisterPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
@@ -11,73 +13,69 @@ export default function RegisterPage() {
           
           {/* First Name */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="text-sm text-gray-600 font-medium inline-block mb-1">
               First Name
             </label>
             <input
               type="text"
               placeholder="First Name"
-              className="w-full px-4 py-2 border rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full py-2 sm:py-3 border border-gray-300 rounded-md px-3 sm:px-4 outline-none focus:border-emerald-500"
             />
           </div>
 
           {/* Last Name */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="text-sm text-gray-600 font-medium inline-block mb-1">
               Last Name
             </label>
             <input
               type="text"
               placeholder="Last Name"
-              className="w-full px-4 py-2 border rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full py-2 sm:py-3 border border-gray-300 rounded-md px-3 sm:px-4 outline-none focus:border-emerald-500"
             />
           </div>
 
           {/* User Name */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="text-sm text-gray-600 font-medium inline-block mb-1">
               User Name
             </label>
             <input
               type="text"
               placeholder="User Name"
-              className="w-full px-4 py-2 border rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full py-2 sm:py-3 border border-gray-300 rounded-md px-3 sm:px-4 outline-none focus:border-emerald-500"
             />
           </div>
 
           {/* Email */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="text-sm text-gray-600 font-medium inline-block mb-1">
               E-Mail
             </label>
             <input
               type="email"
               placeholder="E-Mail"
-              className="w-full px-4 py-2 border rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full py-2 sm:py-3 border border-gray-300 rounded-md px-3 sm:px-4 outline-none focus:border-emerald-500"
             />
           </div>
 
           {/* Password */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Password
-            </label>
-            <input
-              type="password"
-              placeholder="Password"
-              className="w-full px-4 py-2 border rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-500"
+            
+            <PasswordInput
+              label="Password"
+              placeholder="Enter password"
+              name="password"
             />
           </div>
 
           {/* Confirm Password */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Password confirmation
-            </label>
-            <input
-              type="password"
-              placeholder="Password Confirmation"
-              className="w-full px-4 py-2 border rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-500"
+           
+            <PasswordInput
+              label="Password Confirmation"
+              placeholder="Enter password"
+              name="password"
             />
           </div>
 

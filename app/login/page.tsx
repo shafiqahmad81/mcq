@@ -1,33 +1,38 @@
+import PasswordInput from "@/components/input/PasswordInput";
 import Link from "next/link";
 
 export default function LoginPage() {
   return (
     <section className="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-10">
       <div className="w-full max-w-2xl bg-white rounded-2xl shadow-sm p-6 sm:p-10 md:p-14">
-        <h1 className="text-3xl font-semibold text-black mb-10">
+        <h1 className=" text-black mb-5 md:mb-10">
           Hi, Welcome back!
         </h1>
 
         <form className="space-y-6">
-          <input
-            type="text"
-            placeholder="Username or Email Address"
-            className="w-full h-14 border border-gray-300 rounded-md px-5 outline-none focus:border-emerald-500"
-          />
+          <div>
+            <label htmlFor="email" className="text-sm font-medium text-gray-600 mb-2">Your Email</label>
+            <input
+              id="email"
+              type="email"
+              placeholder="Username or Email Address"
+              className="w-full border border-gray-300 rounded-md py-2 sm:py-3 px-3 sm:px-4 outline-none focus:border-emerald-500"
+            />
+          </div>
 
-          <input
-            type="password"
-            placeholder="Password"
-            className="w-full h-14 border border-gray-300 rounded-md px-5 outline-none focus:border-emerald-500"
-          />
+            <PasswordInput
+              label="Password"
+              placeholder="Enter password"
+              name="password"
+            />
 
-          <div className="flex items-center justify-between gap-4 text-sm sm:text-base">
+          <div className="flex items-center justify-between gap-4 text-sm sm:text-base flex-wrap">
             <label className="flex items-center gap-3 text-black cursor-pointer">
               <input type="checkbox" className="w-5 h-5" />
               Keep me signed in
             </label>
 
-            <Link href="/forgot-password" className="text-gray-500 hover:text-emerald-600">
+            <Link href="forgetpassword" className="text-gray-500 hover:text-emerald-600">
               Forgot Password?
             </Link>
           </div>

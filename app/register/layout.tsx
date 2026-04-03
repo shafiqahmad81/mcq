@@ -1,3 +1,5 @@
+import Footer from "@/components/footer/Footer";
+import Header from "@/components/header/header";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -12,7 +14,9 @@ export default function ArchiveLayout({
 }>) {
     return (
         <>
+        <Header />
             {children}
+        <Footer />
         </>
     );
 }
