@@ -11,7 +11,7 @@ export default function LoginPage() {
 
         <form className="space-y-6">
           <div>
-            <label htmlFor="email" className="text-sm font-medium text-gray-600 mb-2">Your Email</label>
+            <label htmlFor="email" className="text-sm font-medium text-gray-600 mb-2">Your Username or Email</label>
             <input
               id="email"
               type="email"

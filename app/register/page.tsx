@@ -2,7 +2,7 @@ import PasswordInput from "@/components/input/PasswordInput";
 
 export default function RegisterPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+    <div className="min-h-[90vh] flex items-center justify-center bg-gray-100 py-2 px-4">
       <div className="w-full max-w-md bg-white p-6 rounded-xl shadow">
         
         <h2 className="text-xl font-semibold mb-6 text-gray-800">
@@ -79,10 +79,12 @@ export default function RegisterPage() {
             />
           </div>
 
+          
+
           {/* Button */}
           <button
             type="submit"
-            className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition"
+            className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition cursor-pointer"
           >
             Register
           </button>
