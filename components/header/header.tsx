@@ -12,14 +12,14 @@ export default function Header() {
   ];
 
   return (
-    <div className="sticky top-0 z-50 bg-white ">
+    <header className="sticky top-0 z-50 bg-white ">
         <div className="container">
                 <nav className="border-b border-gray-200">
-                    <div className="px-4 py-4 flex justify-between items-center">
+                    <div className="py-2 sm:py-4 flex justify-between items-center">
                         
                         {/* Logo */}
                         <h1 className="text-2xl font-bold text-pink-500">
-                        <Link href="/">MCQ Master</Link>
+                          <Link href="/">MCQ Master</Link>
                         </h1>
 
                         {/* Desktop Menu */}
@@ -40,7 +40,7 @@ export default function Header() {
                     </div>
                 </nav>
             </div>
-    </div>
+    </header>
     
   );
 }

@@ -1,16 +1,18 @@
 import PasswordInput from "@/components/input/PasswordInput";
 import Link from "next/link";
+import { FaFacebookF} from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 
 export default function RegisterPage() {
   return (
     <div className="min-h-[90vh] flex items-center justify-center bg-gray-100 py-2 px-4">
-      <div className="w-full max-w-md bg-white p-6 rounded-xl shadow">
+      <div className="w-full max-w-2xl bg-white p-6 rounded-xl shadow">
         
         <h2 className="text-xl font-semibold mb-6 text-gray-800">
           Register
         </h2>
 
-        <form className="space-y-4">
+        <form className="space-y-3 sm:space-y-4">
           
           {/* First Name */}
           <div>
@@ -92,6 +94,40 @@ export default function RegisterPage() {
           >
             Register
           </button>
+
+          
+          {/* Divider */}
+          <div className="flex items-center gap-3 my-4">
+            <div className="flex-1 h-px bg-gray-300" />
+            <span className="text-sm text-gray-500">
+              Or Register With
+            </span>
+            <div className="flex-1 h-px bg-gray-300" />
+          </div>
+
+          
+
+          {/* Social Login */}
+          <div className="grid sm:grid-cols-2 gap-3">
+            {/* Google Login */}
+            <button
+              type="button"
+              className="w-full border border-gray-300 py-2 rounded-md flex items-center justify-center gap-3 cursor-pointer hover:bg-gray-50 transition"
+            >
+              <FcGoogle size={20} />
+              Continue with Google
+            </button>
+            <button
+              type="button"
+              className="border border-gray-300 py-2 rounded-md flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-50 transition"
+            >
+              <FaFacebookF className="text-blue-600" />
+              Facebook
+            </button>
+
+          </div>
+
+
           <p className="text-center text-lg text-gray-700">
             I have an account?{" "}
             <Link href="/login" className="text-emerald-600 font-medium hover:underline cursor-pointer">
