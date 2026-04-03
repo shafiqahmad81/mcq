@@ -23,11 +23,11 @@ export default function Footer() {
 
         <div>
           <h4 className="font-semibold mb-3 text-blue-400">Categories</h4>
-          <div className="space-y-2 text-sm text-gray-300">
-            <p>বাংলা</p>
-            <p>English</p>
-            <p>সাধারণ জ্ঞান</p>
-            <p>বিজ্ঞান</p>
+          <div className="space-y-2 text-sm flex flex-col">
+            <Link className="inline-block" href="category">বাংলা</Link>
+            <Link className="inline-block" href="category">English</Link>
+            <Link className="inline-block" href="category">সাধারণ জ্ঞান</Link>
+            <Link className="inline-block" href="category">বিজ্ঞান</Link>
           </div>
         </div>
 
