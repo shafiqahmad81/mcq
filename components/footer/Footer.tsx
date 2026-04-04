@@ -42,7 +42,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-gray-800 text-center py-4 mt-5">
-        <p className=" text-sm sm:text-base text-white">Copyright © 2026 Serial Box All Rights Reserved. Development by <span className="text-pink-500 text-base sm:text-lg">Dreamlabit</span></p>
+        <p className=" text-sm sm:text-base text-white">Copyright © 2026 MCQ All Rights Reserved. Development by <span className="text-pink-500 text-base sm:text-lg">Dreamlabit</span></p>
       </div>
     </footer>
   );
