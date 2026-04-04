@@ -17,9 +17,9 @@ const categories = [
 ];
 
 const courses = [
-  { title: "React Basics", price: "$49", image: Image1, link: "/checkout/react-basics" },
-  { title: "Next.js Advanced", price: "$69", image: Image1, link: "/checkout/nextjs-advanced" },
-  { title: "Javascript Advanced", price: "$50", image: Image1, link: "/checkout/javascript-advanced" },
+  { title: "React Basics", price: "$49", image: Image1, link: "/payment" },
+  { title: "Next.js Advanced", price: "$69", image: Image1, link: "/payment" },
+  { title: "Javascript Advanced", price: "$50", image: Image1, link: "/payment" },
 ];
 
 export default function HomePage() {

@@ -40,7 +40,7 @@ export default function FormInput({
 
   return (
     <div>
-      <label className="text-sm font-medium text-gray-600 mb-2 block">
+      <label className="text-sm font-medium text-gray-600 mb-1 sm:mb-2 block">
         {label}
       </label>
 

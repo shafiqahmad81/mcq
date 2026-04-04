@@ -6,8 +6,8 @@ import { FcGoogle } from "react-icons/fc";
 
 export default function LoginPage() {
   return (
-    <section className="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-10">
-      <div className="w-full max-w-2xl bg-white rounded-2xl shadow-sm p-6 sm:p-10 md:p-14">
+    <section className="min-h-[90vh] bg-gray-100 flex items-center justify-center px-4 py-5 md:py-10">
+      <div className="w-full max-w-2xl bg-white rounded-2xl shadow-sm p-3 sm:p-6 md:p-10 lg:p-14">
         <h1 className=" text-black mb-5 md:mb-10">
           Hi, Welcome back!
         </h1>
@@ -28,12 +28,13 @@ export default function LoginPage() {
             />
 
           <div className="flex items-center justify-between gap-4 text-sm sm:text-base flex-wrap">
-            <label className="flex items-center gap-3 text-black cursor-pointer">
-              <input type="checkbox" className="w-5 h-5" />
-              Keep me signed in
-            </label>
+           
+            <div className="flex items-center gap-2">
+              <input type="checkbox" id="Keep" className="w-3 sm:w-4 h-3 sm:h-4 cursor-pointer"/>
+              <label className="text-base sm:text-lg text-gray-600" htmlFor="Keep">Keep me signed in</label>
+            </div>
 
-            <Link href="forgetpassword" className="text-gray-500 hover:text-emerald-600 hover:underline">
+            <Link href="forgetpassword" className="text-base sm:text-lg text-gray-600 hover:text-emerald-600 hover:underline">
               Forgot Password?
             </Link>
           </div>
@@ -71,9 +72,9 @@ export default function LoginPage() {
 
           </div>
         </form>
-        <p className="text-center mt-8 text-lg text-gray-700">
+        <p className="text-center mt-5 sm:mt-8 text-base sm:text-lg text-gray-700">
           Don&apos;t have an account?{" "}
-          <Link href="/register" className="text-emerald-600 font-medium hover:underline cursor-pointer">
+          <Link href="/register" className="text-base sm:text-lg text-emerald-600 font-medium hover:underline cursor-pointer">
             Register Now
           </Link>
         </p>

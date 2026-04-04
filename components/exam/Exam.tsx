@@ -54,7 +54,6 @@ export default function Exam() {
         correct={correctAnswers}
         wrong={wrongAnswers}
         score={score}
-        timeTaken={formatTime(time)}
       />
     );
   }

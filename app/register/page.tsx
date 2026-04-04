@@ -5,7 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 
 export default function RegisterPage() {
   return (
-    <div className="min-h-[90vh] flex items-center justify-center bg-gray-100 py-2 px-4">
+    <div className="min-h-[90vh] flex items-center justify-center bg-gray-100 py-4 px-4">
       <div className="w-full max-w-2xl bg-white p-6 rounded-xl shadow">
         
         <h2 className="text-xl font-semibold mb-6 text-gray-800">
@@ -83,8 +83,8 @@ export default function RegisterPage() {
           </div>
 
           <div className="flex items-center gap-2">
-            <input type="checkbox" id="terms" />
-            <label htmlFor="terms">I agree to <Link className="text-blue-600 hover:underline" href={"trems"}>Terms & Conditions</Link></label>
+            <input type="checkbox" id="terms" className="w-3 sm:w-4 h-3 sm:h-4"/>
+            <label className="text-base sm:text-lg" htmlFor="terms">I agree to <Link className="text-blue-600 hover:underline" href={"trems"}>Terms & Conditions</Link></label>
           </div>
 
           {/* Button */}
