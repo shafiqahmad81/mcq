@@ -1,16 +1,22 @@
+"use client";
 
-import ViewResult from "@/components/vewresult/VewResult";
+import { useEffect, useState } from "react";
+import ViewResult from "@/components/viewresult/ViewResult";
 import { questions } from "@/data/questions";
 
 export default function ViewPage() {
-const answers: Record<number, string> = {
-  1: "নিউক্লিয়াস",
-  2: "৩টি",
-};
+  const [answers, setAnswers] = useState<Record<number, string>>({});
+
+  useEffect(() => {
+    const storedAnswers = localStorage.getItem("examAnswers");
+
+    if (storedAnswers) {
+      setAnswers(JSON.parse(storedAnswers));
+    }
+  }, []);
 
   return (
     <section className="max-w-3xl mx-auto bg-white shadow p-6">
-      
       {questions.map((q, index) => (
         <ViewResult
           key={q.id}
@@ -22,7 +28,6 @@ const answers: Record<number, string> = {
           total={questions.length}
         />
       ))}
-
     </section>
   );
 }

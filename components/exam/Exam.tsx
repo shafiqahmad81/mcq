@@ -1,13 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { questions } from "../../data/questions";
-import ResultCard from "../../components/result/ResultCard";
+import { useRouter } from "next/navigation";
+import { questions } from "@/data/questions";
 
-export default function Exam() {
+export default function ExamPage() {
+  const router = useRouter();
   const [time, setTime] = useState(12 * 60);
-  const [answers, setAnswers] = useState<any>({});
-  const [showResult, setShowResult] = useState(false);
+  const [answers, setAnswers] = useState<Record<number, string>>({});
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -17,101 +17,73 @@ export default function Exam() {
     return () => clearInterval(timer);
   }, []);
 
-  const formatTime = (time: number) => {
-    const min = Math.floor(time / 60);
-    const sec = time % 60;
-    return `${min}:${sec < 10 ? "0" : ""}${sec}`;
-  };
-
   const handleSelect = (qId: number, option: string) => {
-    setAnswers({
-      ...answers,
+    setAnswers((prev) => ({
+      ...prev,
       [qId]: option,
-    });
+    }));
   };
 
-  // Finish Exam
   const handleFinish = () => {
-    setShowResult(true);
-  };
+    const correct = questions.filter(
+      (q) => answers[q.id] === q.answer
+    ).length;
 
-  // Calculate Result
-  const correctAnswers = questions.filter(
-    (q) => answers[q.id] === q.answer
-  ).length;
+    const wrong = Object.keys(answers).length - correct;
 
-  const wrongAnswers = Object.keys(answers).length - correctAnswers;
-
-  const score = Math.round(
-    (correctAnswers / questions.length) * 100
-  );
-
-  // Show Result
-  if (showResult) {
-    return (
-      <ResultCard
-        totalQuestions={questions.length}
-        correct={correctAnswers}
-        wrong={wrongAnswers}
-        score={score}
-      />
+    const score = Math.round(
+      (correct / questions.length) * 100
     );
-  }
+
+    localStorage.setItem("examAnswers", JSON.stringify(answers));
+    localStorage.setItem(
+      "examResult",
+      JSON.stringify({
+        totalQuestions: questions.length,
+        correct,
+        wrong,
+        score,
+      })
+    );
+
+    router.push("/result");
+  };
 
   return (
     <section className="max-w-3xl mx-auto bg-white shadow pb-4">
-      
-      {/* Header */}
-      <div className="text-center py-3 border-b bg-gray-100">
-        Exam will end after {formatTime(time)}
-      </div>
-
-      {/* Questions */}
       <div className="p-6 space-y-10">
         {questions.map((q, index) => (
           <div key={q.id}>
-            
             <div className="flex justify-between mb-4">
-              <h4 className="font-medium">
-                {q.question}
-              </h4>
-
-              <span className="w-full max-w-14">
-                {index + 1} / {questions.length}
+              <h5>{q.question}</h5>
+              <span>
+                {index + 1}/{questions.length}
               </span>
             </div>
 
-            <div className="space-y-3">
-              {q.options.map((option, i) => (
-                <label
-                  key={i}
-                  className="flex items-center gap-3 border p-2 sm:p-3 cursor-pointer hover:bg-gray-50"
-                >
-                  <input
-                    type="radio"
-                    name={`question-${q.id}`}
-                    checked={answers[q.id] === option}
-                    onChange={() => handleSelect(q.id, option)}
-                  />
-
-                  {option}
-                </label>
-              ))}
-            </div>
+            {q.options.map((option, i) => (
+              <label key={i} className="block border p-3 mb-2">
+                <input
+                  type="radio"
+                  name={`question-${q.id}`}
+                  checked={answers[q.id] === option}
+                  onChange={() => handleSelect(q.id, option)}
+                />
+                <span className="ml-2">{option}</span>
+              </label>
+            ))}
           </div>
         ))}
       </div>
 
-      {/* Finish Button */}
-      <div className="flex items-center justify-center">
+      <div className="text-center pb-6">
         <button
           onClick={handleFinish}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-semibold shadow-md transition cursor-pointer"
+          className="bg-blue-600 text-white px-8 py-3 rounded-md cursor-pointer"
         >
           Finish Exam
         </button>
       </div>
-
     </section>
   );
 }

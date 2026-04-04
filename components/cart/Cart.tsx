@@ -69,22 +69,22 @@ export default function Cart() {
           </thead>
           <tbody>
             {cartItems.map((item) => (
-              <tr key={item.id} className="border-t">
+              <tr key={item.id} className="border-t border-gray-300">
                 <td className="p-3 sm:p-4"><span className="font-medium text-gray-800">{item.title}</span></td>
                 <td className="text-center p-3 sm:p-4">৳{item.price.toFixed(2)}</td>
                 <td className="p-3 sm:p-4">
                   <div className="flex justify-center">
-                    <div className="border flex items-center rounded overflow-hidden">
+                    <div className="border border-gray-300 flex items-center rounded overflow-hidden">
                       <button
                         onClick={() => decreaseQty(item.id)}
-                        className="px-3 py-1 border-r hover:bg-gray-100 transition"
+                        className="px-3 py-1 border-r border-gray-300 hover:bg-gray-100 transition cursor-pointer"
                       >
                         -
                       </button>
                       <span className="px-4 py-1">{item.qty}</span>
                       <button
                         onClick={() => increaseQty(item.id)}
-                        className="px-3 py-1 border-l hover:bg-gray-100 transition"
+                        className="px-3 py-1 border-l border-gray-300 hover:bg-gray-100 transition cursor-pointer"
                       >
                         +
                       </button>
@@ -106,19 +106,19 @@ export default function Cart() {
         </table>
       </div>
 
-      <div className="flex flex-col lg:flex-row justify-between gap-8 mt-6">
+      <div className="flex flex-col sm:flex-row justify-between gap-5 mt-6">
         <div className="flex flex-col flex-wrap gap-4">
           <input
             type="text"
             placeholder="Coupon code"
-            className="border border-gray-300 px-4 py-3 rounded-md w-full sm:w-64"
+            className="w-full py-2 sm:py-3 border border-gray-300 rounded-md px-3 sm:px-4 outline-none focus:border-emerald-500"
           />
-          <button className="bg-gray-900 text-white px-6 py-3 rounded-md font-medium">
+          <button type="submit" className="bg-gray-900 text-white px-6 py-3 rounded-md font-medium cursor-pointer">
             Apply Coupon
           </button>
         </div>
 
-        <div className="w-full lg:max-w-md ml-auto">
+        <div className="w-full sm:max-w-sm ml-auto">
           <h2 className="text-2xl font-semibold mb-4">Cart totals</h2>
           <div className="border border-gray-200 rounded-lg overflow-hidden">
             <div className="flex justify-between p-4 border-b">
@@ -131,8 +131,8 @@ export default function Cart() {
             </div>
           </div>
 
-          <button className="w-full mt-4 bg-red-600 hover:bg-red-700 text-white py-4 rounded-lg font-semibold text-lg transition">
-            Proceed to Checkout →
+          <button className="w-full mt-4 bg-red-600 hover:bg-red-700 text-white py-4 rounded-lg font-semibold text-lg transition cursor-pointer">
+            Proceed to Checkout
           </button>
         </div>
       </div>

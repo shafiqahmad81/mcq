@@ -1,3 +1,5 @@
+import { CheckCircle, XCircle } from "lucide-react";
+
 interface ResultQuestionProps {
   question: string;
   options: string[];
@@ -19,7 +21,7 @@ export default function ViewResult({
     <div className="space-y-4 mb-5 md:pb-10">
       
       {/* Question Header */}
-      <div className="flex justify-between">
+      <div className="flex items-start justify-between">
         <h3 className="text-lg font-medium text-gray-700">
           {question}
         </h3>
@@ -59,12 +61,12 @@ export default function ViewResult({
 
               {/* Correct Icon */}
               {isCorrect && (
-                <span className="text-green-600 text-xl">✔</span>
+                <CheckCircle className="w-5 h-5 text-green-600" />
               )}
 
               {/* Wrong Icon */}
               {isSelected && !isCorrect && (
-                <span className="text-red-600 text-xl">✖</span>
+                <XCircle className="w-5 h-5 text-red-600" />
               )}
             </div>
           );
