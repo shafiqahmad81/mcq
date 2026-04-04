@@ -31,7 +31,7 @@ export default function ExamCard({
           {title} | {marks} নম্বর
         </p>
 
-        <Link href={"exam"} className="mt-4 bg-yellow-300 hover:bg-yellow-400 transition px-8 py-3 rounded-md font-semibold shadow">
+        <Link href={"exam"} className="mt-4 bg-pink-500 hover:bg-pink-600 transition-all px-8 py-2 sm:py-3 text-white rounded-md font-semibold shadow">
           {buttonText}
         </Link>
       </div>

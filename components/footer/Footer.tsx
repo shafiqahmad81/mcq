@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white py-6 md:py-12">
+    <footer className="bg-black text-white py-5 md:py-10">
       <div className="container grid md:grid-cols-4 gap-5 sm:gap-8">
         <div>
           <h3 className="text-2xl font-bold text-pink-400 mb-2 sm:mb-3">MCQ Master</h3>
@@ -41,8 +41,8 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-gray-800 text-center py-4 text-sm mt-5 text-gray-400">
-        © 2026 MCQ Master. All rights reserved.
+      <div className="border-t border-gray-800 text-center py-4 mt-5">
+        <p className=" text-sm sm:text-base text-white">Copyright © 2026 Serial Box All Rights Reserved. Development by <span className="text-pink-500 text-base sm:text-lg">Dreamlabit</span></p>
       </div>
     </footer>
   );

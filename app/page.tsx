@@ -39,32 +39,14 @@ export default function HomePage() {
               </p>
               <Link
                 href="/mcq"
-                className="inline-block mt-6 bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-2xl"
+                className="inline-block mt-6 bg-pink-500 hover:bg-pink-600 transition-all text-white px-8 py-3 rounded-2xl"
               >
                 Start Practice
               </Link>
             </div>
-            <div className="w-full max-w-md h-64 rounded-3xl bg-blue-100 flex items-center justify-center">
+            <div className="w-full max-w-md py-10 md:py-20 rounded-3xl bg-blue-100 flex items-center justify-center">
               <span className="text-6xl">📘</span>
             </div>
-          </div>
-        </section>
-
-        {/* Featured courses */}
-        <section className="container py-8">
-          <h2 className="text-2xl font-bold border-b-4 border-green-600 inline-block mb-6">
-            Preparation Model Test
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {courses.map((course, i) => (
-              <CourseCard
-                key={i}
-                title={course.title}
-                price={course.price}
-                imageSrc={course.image}
-                purchaseLink={course.link}
-              />
-            ))}
           </div>
         </section>
 
@@ -88,6 +70,23 @@ export default function HomePage() {
               </div>
             </div>
           ))}
+        </section>
+        {/* Featured courses */}
+        <section className="container py-8">
+          <h2 className="text-2xl font-bold border-b-4 border-green-600 inline-block mb-6">
+            Preparation Model Test
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {courses.map((course, i) => (
+              <CourseCard
+                key={i}
+                title={course.title}
+                price={course.price}
+                imageSrc={course.image}
+                purchaseLink={course.link}
+              />
+            ))}
+          </div>
         </section>
       </div>
       <Footer />

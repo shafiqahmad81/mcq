@@ -107,16 +107,16 @@ export default function Cart() {
       </div>
 
       <div className="flex flex-col sm:flex-row justify-between gap-5 mt-6">
-        <div className="flex flex-col flex-wrap gap-4">
+        <form className="flex flex-col flex-wrap gap-4">
           <input
             type="text"
             placeholder="Coupon code"
             className="w-full py-2 sm:py-3 border border-gray-300 rounded-md px-3 sm:px-4 outline-none focus:border-emerald-500"
           />
-          <button type="submit" className="bg-gray-900 text-white px-6 py-3 rounded-md font-medium cursor-pointer">
+          <button type="submit" className="bg-pink-500 hover:bg-pink-600 transition-all text-white px-6 py-3 rounded-md font-medium cursor-pointer">
             Apply Coupon
           </button>
-        </div>
+        </form>
 
         <div className="w-full sm:max-w-sm ml-auto">
           <h2 className="text-2xl font-semibold mb-4">Cart totals</h2>
@@ -131,9 +131,11 @@ export default function Cart() {
             </div>
           </div>
 
-          <button className="w-full mt-4 bg-red-600 hover:bg-red-700 text-white py-4 rounded-lg font-semibold text-lg transition cursor-pointer">
-            Proceed to Checkout
-          </button>
+          <form action="">
+            <button type="submit" className="w-full mt-4 bg-pink-500 hover:bg-pink-600 transition-all text-white py-4 rounded-lg font-semibold text-lg cursor-pointer">
+                Proceed to Checkout
+            </button>
+          </form>
         </div>
       </div>
     </section>

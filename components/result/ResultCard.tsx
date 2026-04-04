@@ -17,7 +17,7 @@ export default function ResultCard({
 }: ResultCardProps) {
   return (
     <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
-      <div className="bg-green-600 text-white text-center py-4">
+      <div className="bg-pink-500 text-white text-center py-4">
         <h2 className="text-xl font-semibold">Exam Result</h2>
       </div>
 
@@ -49,14 +49,14 @@ export default function ResultCard({
         <div className="flex gap-4 justify-center">
           <Link
             href="/view"
-            className="bg-blue-600 text-white px-6 py-2 rounded-md"
+            className="bg-pink-500 hover:bg-pink-600 transition-all text-white px-6 py-2 rounded-md"
           >
             Review Answers
           </Link>
 
           <Link
             href="/exam"
-            className="bg-green-600 text-white px-6 py-2 rounded-md"
+            className="bg-blue-500 hover:bg-blue-600 transition-all text-white px-6 py-2 rounded-md"
           >
             Try Again
           </Link>

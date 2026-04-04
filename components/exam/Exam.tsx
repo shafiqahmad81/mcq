@@ -79,7 +79,7 @@ export default function ExamPage() {
       <div className="text-center pb-6">
         <button
           onClick={handleFinish}
-          className="bg-blue-600 text-white px-8 py-3 rounded-md cursor-pointer"
+          className="bg-pink-500 hover:bg-pink-600 transition-all text-white px-8 py-3 rounded-md cursor-pointer"
         >
           Finish Exam
         </button>

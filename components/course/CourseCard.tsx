@@ -33,7 +33,7 @@ export default function CourseCard({
         <h3 className="font-semibold mb-3">{title}</h3>
         <div className="flex justify-between items-center">
           <span className="font-bold text-blue-600">{price}</span>
-          <Link href={purchaseLink} className="bg-red-500 text-white px-4 py-2 rounded-xl hover:bg-red-600 transition">
+          <Link href={purchaseLink} className="bg-pink-500 hover:bg-pink-600 transition-all text-white px-4 py-2 rounded-xl">
             Purchase
           </Link>
         </div>
