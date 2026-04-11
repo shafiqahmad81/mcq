@@ -1,38 +1,41 @@
-import Link from "next/link";
+import Card from "@/components/category/Card";
 
 export default function CategoryPage() {
-  const banglaItems = [
-    "বাংলা ব্যাকরণ",
-    "বাংলা সাহিত্য",
-    "সমাস",
-    "বাগধারা",
-    "এক কথায় প্রকাশ",
-    "কারক বিভক্তি",
-  ];
 
   return (
     <section className="container mx-auto px-4 py-10">
       {/* Page Header */}
       <div className="text-center mb-10">
         <h1 className="">
-          বাংলা MCQ
+          প্রিলি প্রস্তুতি MCQ
         </h1>
         <p className="text-gray-500 mt-2">
-          বাংলা বিষয়ের MCQ practice শুরু করুন
+          প্রিলি প্রস্তুতি MCQ practice শুরু করুন
         </p>
       </div>
 
       {/* বাংলা MCQ Sets */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {banglaItems.map((cat, i) => (
-          <Link
-            key={i}
-            href="/mcq"
-            className="border rounded-xl px-4 py-4 hover:bg-blue-50 hover:border-blue-400 transition text-sm font-medium block"
-          >
-            {cat} MCQ Set {i + 1} • ৩০ মার্কস
-          </Link>
-        ))}
+      <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
+        <Card
+          title="বাংলা"
+          description="বাংলাদেশের ইতিহাস হাজার বছরের সমৃদ্ধ ঐতিহ্যে ভরা..."
+          href="/model-test"
+        />
+        <Card
+          title="English"
+          description="বাংলাদেশের ইতিহাস হাজার বছরের সমৃদ্ধ ঐতিহ্যে ভরা..."
+          href="/model-test"
+        />
+        <Card
+          title="গণিত"
+          description="বাংলাদেশের ইতিহাস হাজার বছরের সমৃদ্ধ ঐতিহ্যে ভরা..."
+          href="/model-test"
+        />
+        <Card
+          title="সাধারণ জ্ঞান"
+          description="বাংলাদেশের ইতিহাস হাজার বছরের সমৃদ্ধ ঐতিহ্যে ভরা..."
+          href="/model-test"
+        />
       </div>
     </section>
   );

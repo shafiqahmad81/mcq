@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-black text-white py-5 md:py-10">
-      <div className="container grid md:grid-cols-4 gap-5 sm:gap-8">
+      <div className="container grid md:grid-cols-3 gap-5 sm:gap-8">
         <div>
           <h3 className="text-2xl font-bold text-pink-400 mb-2 sm:mb-3">MCQ Master</h3>
           <p className="text-sm text-gray-300 leading-6">
@@ -21,15 +21,6 @@ export default function Footer() {
           </div>
         </div>
 
-        <div>
-          <h4 className="font-semibold mb-2 sm:mb-3 text-blue-500">Categories</h4>
-          <div className="space-y-2 text-sm flex flex-col">
-            <Link className="inline-block" href="category">বাংলা</Link>
-            <Link className="inline-block" href="category">English</Link>
-            <Link className="inline-block" href="category">গণিত</Link>
-            <Link className="inline-block" href="category">সাধারণ জ্ঞান</Link>
-          </div>
-        </div>
 
         <div>
           <h4 className="font-semibold mb-2 sm:mb-3 text-blue-500">Contact</h4>

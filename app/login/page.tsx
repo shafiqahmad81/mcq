@@ -15,9 +15,9 @@ export default function LoginPage() {
         <form className="space-y-3 sm:space-y-4">
 
           <FormInput
-            label="Your username or email"
+            label="Your phone or email"
             name="email"
-            placeholder="Username or email address"
+            placeholder="Phone number or email address"
             required
           />
 

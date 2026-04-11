@@ -22,20 +22,18 @@ export default function Header() {
       items: [
         ["প্রিলি প্রস্তুতি", "/category"],
         ["ব্যাংক নিয়োগ", "/category"],
+        
+      ],
+    },
+    {
+      items: [
         ["মডেল টেস্ট", "/category"],
-      ],
-    },
-    {
-      items: [
         ["জব সার্কুলার", "/category"],
-        ["বাংলা", "/category"],
-        ["English", "/category"],
       ],
     },
     {
       items: [
-        ["গণিত", "/category"],
-        ["সাধারণ জ্ঞান", "/category"],
+        ["Contact", "/contact"],
         ["Terms & Conditions", "/terms"],
       ],
     },

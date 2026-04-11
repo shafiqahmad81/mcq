@@ -43,7 +43,7 @@ export default function Contact() {
               placeholder="Write your message..."
               className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <button className="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition">
+            <button type="submit" className="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition cursor-pointer">
               Send Message
             </button>
           </form>

@@ -4,16 +4,12 @@ import Image1 from "../assets/image/image1.jpg"
 import CourseCard from "@/components/course/CourseCard";
 import Header from "../components/header/header";
 import Footer from "@/components/footer/Footer";
+import Card from "@/components/category/Card";
 
 const categories = [
   "প্রিলি প্রস্তুতি",
   "ব্যাংক নিয়োগ",
-  "মডেল টেস্ট",
-  "বাংলা",
-  "English",
-  "সাধারণ জ্ঞান",
-  "বিজ্ঞান ও প্রযুক্তি",
-  "জব সার্কুলার",
+  "বিসিএস"
 ];
 
 const courses = [
@@ -57,16 +53,27 @@ export default function HomePage() {
               <h2 className="text-2xl font-bold text-center border-b-4 border-green-600 pb-2 mb-6">
                 {cat}
               </h2>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {Array.from({ length: 6 }).map((_, i) => (
-                  <Link
-                    key={i}
-                    href="/mcq"
-                    className="border rounded-xl px-4 py-4 hover:bg-blue-50 hover:border-blue-400 transition text-sm font-medium"
-                  >
-                    {cat} MCQ Set {i + 1} • ৩০ মার্কস
-                  </Link>
-                ))}
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  <Card
+                    title="বাংলা"
+                    description="বাংলাদেশের ইতিহাস হাজার বছরের সমৃদ্ধ ঐতিহ্যে ভরা..."
+                    href="/model-test"
+                  />
+                  <Card
+                    title="English"
+                    description="বাংলাদেশের ইতিহাস হাজার বছরের সমৃদ্ধ ঐতিহ্যে ভরা..."
+                    href="/model-test"
+                  />
+                  <Card
+                    title="গণিত"
+                    description="বাংলাদেশের ইতিহাস হাজার বছরের সমৃদ্ধ ঐতিহ্যে ভরা..."
+                    href="/model-test"
+                  />
+                  <Card
+                    title="সাধারণ জ্ঞান"
+                    description="বাংলাদেশের ইতিহাস হাজার বছরের সমৃদ্ধ ঐতিহ্যে ভরা..."
+                    href="/model-test"
+                  />
               </div>
             </div>
           ))}

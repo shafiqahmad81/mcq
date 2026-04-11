@@ -1,7 +1,9 @@
+"use client";
 import PasswordInput from "@/components/input/PasswordInput";
 import Link from "next/link";
 import { FaFacebookF} from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+
 
 export default function RegisterPage() {
   return (
@@ -41,11 +43,16 @@ export default function RegisterPage() {
           {/* User Name */}
           <div>
             <label className="text-sm text-gray-600 font-medium inline-block mb-1">
-              User Name
+              Phone number
             </label>
+
             <input
-              type="text"
-              placeholder="User Name"
+              type="tel"
+              placeholder="Phone number"
+              maxLength={11}
+              onInput={(e) => {
+                e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "");
+              }}
               className="w-full py-2 sm:py-3 border border-gray-300 rounded-md px-3 sm:px-4 outline-none focus:border-emerald-500"
             />
           </div>
