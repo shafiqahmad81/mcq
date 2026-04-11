@@ -4,13 +4,17 @@ interface Props {
   name: string;
   type?: string;
   placeholder?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function FormInput({
+export default function InputField({
   label,
   name,
   type = "text",
   placeholder,
+  value,
+  onChange,
 }: Props) {
 
   return (
@@ -22,6 +26,8 @@ export default function FormInput({
       <input
         name={name}
         type={type}
+        value={value}
+        onChange={onChange}
         placeholder={placeholder}
         
         className="w-full py-2 sm:py-3 border border-gray-300 rounded-md px-3 sm:px-4 pr-12 outline-none focus:border-green-600"

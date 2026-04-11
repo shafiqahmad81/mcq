@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import FormInput from "@/components/input/formInput";
-import PasswordInput from "@/components/input/passwordInput";
 import Link from "next/link";
 import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import PasswordInput from "@/components/input/passwordField";
+import InputField from "@/components/input/inputField";
 
 export default function Page() {
   const [form, setForm] = useState({
@@ -56,7 +56,7 @@ export default function Page() {
         <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
           {/* Email / Phone */}
           <div>
-            <FormInput
+            < InputField
               label="Your phone or email"
               name="email"
               placeholder="Phone number or email address"

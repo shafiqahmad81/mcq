@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import PasswordInput from "@/components/input/passwordInput";
+import PasswordInput from "@/components/input/passwordField";
 import Link from "next/link";
 import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import InputField from "@/components/input/inputField";
 
 export default function Page() {
   const [form, setForm] = useState({
@@ -111,16 +112,14 @@ export default function Page() {
         <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
           {/* First Name */}
           <div>
-            <label className="text-sm text-gray-600 font-medium inline-block mb-1">
-              First Name <span className="text-red-700">*</span>
-            </label>
-            <input
+            
+            < InputField
+              label="First Name"
+              name="email"
               type="text"
-              name="firstName"
               value={form.firstName}
               onChange={handleChange}
               placeholder="First Name"
-              className="w-full py-2 sm:py-3 border border-gray-300 rounded-md px-3 sm:px-4 outline-none focus:border-emerald-500"
             />
             {errors.firstName && (
               <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>
@@ -129,17 +128,15 @@ export default function Page() {
 
           {/* Last Name */}
           <div>
-            <label className="text-sm text-gray-600 font-medium inline-block mb-1">
-              Last Name <span className="text-red-700">*</span>
-            </label>
-            <input
-              type="text"
+            < InputField
+              label="Last Name"
               name="lastName"
+              type="text"
               value={form.lastName}
               onChange={handleChange}
               placeholder="Last Name"
-              className="w-full py-2 sm:py-3 border border-gray-300 rounded-md px-3 sm:px-4 outline-none focus:border-emerald-500"
             />
+            
             {errors.lastName && (
               <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>
             )}
@@ -166,16 +163,14 @@ export default function Page() {
 
           {/* Email */}
           <div>
-            <label className="text-sm text-gray-600 font-medium inline-block mb-1">
-              E-Mail <span className="text-red-700">*</span>
-            </label>
-            <input
-              type="email"
+
+            < InputField
+              label="E-Mail"
               name="email"
+              type="email"
               value={form.email}
               onChange={handleChange}
               placeholder="E-Mail"
-              className="w-full py-2 sm:py-3 border border-gray-300 rounded-md px-3 sm:px-4 outline-none focus:border-emerald-500"
             />
             {errors.email && (
               <p className="text-red-500 text-sm mt-1">{errors.email}</p>
