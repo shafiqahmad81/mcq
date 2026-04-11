@@ -1,9 +1,9 @@
-import Payment from "@/components/payment/Payment";
+import PaymentPage from "./payment";
 
-export default function PaymentPage() {
+export default function Page() {
   return (
     <>
-      <Payment />
+      <PaymentPage />
     </>
   );
 }

@@ -1,11 +1,9 @@
-import Contact from "./Contact";
-
+import Premium from "./Premium";
 
 export default function Page() {
-
   return (
     <>
-      <Contact />
+      <Premium />
     </>
   );
 }

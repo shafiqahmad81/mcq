@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import ResultCard from "@/components/result/ResultCard";
+import ResultCard from "./ResultCard";
 
-export default function ResultPage() {
+export default function Page() {
   const [result, setResult] = useState({
     totalQuestions: 0,
     correct: 0,

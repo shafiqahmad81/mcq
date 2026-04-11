@@ -15,13 +15,11 @@ export default function ExamCard({
 }: ExamCardProps) {
   return (
     <div className="bg-white shadow-xl rounded-md overflow-hidden">
-      
-      {/* Header */}
+     
       <div className="text-center py-4 border-b bg-gray-50 text-gray-600 font-medium">
         পরীক্ষার সময় {duration} মিনিট
       </div>
 
-      {/* Body */}
       <div className="py-16 text-center space-y-4">
         <h2 className="text-xl font-semibold">
           {title} | {marks} নম্বর

@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import ViewResult from "@/components/viewresult/ViewResult";
 import { questions } from "@/data/questions";
+import ViewResult from "./ViewResult";
 
-export default function ViewPage() {
+export default function Page() {
   const [answers, setAnswers] = useState<Record<number, string>>({});
 
   useEffect(() => {

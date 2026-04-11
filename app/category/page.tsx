@@ -1,6 +1,6 @@
-import Card from "@/components/category/Card";
+import Card from "./Card";
 
-export default function CategoryPage() {
+export default function Page() {
 
   return (
     <section className="container mx-auto px-4 py-10">

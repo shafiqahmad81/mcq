@@ -15,21 +15,19 @@ const links = [
 const megaMenu = [
   {
     items: [
-      ["All Questions", "/mcq"],
-      ["Model Test", "/model-test"],
-      ["Current Affairs", "/current-affairs"],
+      ["প্রিলি প্রস্তুতি", "/category"],
+      ["ব্যাংক নিয়োগ", "/category"],
     ],
   },
   {
     items: [
-      ["Job Circular", "/job-circular"],
-      ["Job Solution", "/job-solution"],
-      ["Top Scorer", "/top-scorer"],
+      ["মডেল টেস্ট", "/category"],
+      ["জব সার্কুলার", "/category"],
     ],
   },
   {
     items: [
-      ["Privacy Policy", "/privacy-policy"],
+      ["Contact", "/contact"],
       ["Terms & Conditions", "/terms"],
     ],
   },

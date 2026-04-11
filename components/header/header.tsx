@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import MobileMenu from "../mobile-menu/MobileMenu";
+import MobileMenu from "./mobileMenu";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 

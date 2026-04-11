@@ -1,9 +1,9 @@
-import Exam from "@/components/exam/Exam";
+import ExamPage from "./Exam";
 
-export default function ExamPage() {
+export default function Page() {
   return (
       <>
-        <Exam />
+        <ExamPage />
       </>
   );
 }

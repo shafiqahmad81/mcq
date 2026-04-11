@@ -1,10 +1,11 @@
-import Image from "next/image";
+
 import Link from "next/link";
 import Image1 from "../assets/image/image1.jpg"
-import CourseCard from "@/components/course/CourseCard";
 import Header from "../components/header/header";
-import Footer from "@/components/footer/Footer";
-import Card from "@/components/category/Card";
+import Card from "@/app/category/Card";
+import Footer from "@/components/footer/footerSection";
+import CourseCard from "@/components/course/CourseCard";
+
 
 const categories = [
   "প্রিলি প্রস্তুতি",
@@ -13,7 +14,7 @@ const categories = [
 ];
 
 const courses = [
-  { title: "React Basics", price: "$49", image: Image1, link: "/payment" },
+  { title: "React Basics", price: "$49", image: Image1, link: "/premium" },
   { title: "Next.js Advanced", price: "$69", image: Image1, link: "/payment" },
   { title: "Javascript Advanced", price: "$50", image: Image1, link: "/payment" },
 ];

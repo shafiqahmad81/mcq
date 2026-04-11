@@ -1,4 +1,3 @@
-"use client";
 
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
@@ -25,7 +24,7 @@ export default function PasswordInput({
       
       {label && (
         <label htmlFor="password"  className="text-sm text-gray-600 font-medium inline-block mb-1">
-          {label}
+          {label} <span className="text-red-700">*</span>
         </label>
       )}
 
@@ -37,7 +36,7 @@ export default function PasswordInput({
           name={name}
           value={value}
           onChange={onChange}
-          className="w-full py-2 sm:py-3 border border-gray-300 rounded-md px-3 sm:px-4 pr-12 outline-none focus:border-emerald-500"
+          className="w-full py-2 sm:py-3 border border-gray-300 rounded-md px-3 sm:px-4 pr-12 outline-none focus:border-green-600"
         />
 
         {/* Toggle */}

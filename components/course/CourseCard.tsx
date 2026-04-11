@@ -8,7 +8,7 @@ interface CourseCardProps {
   price: string;
   imageSrc: string | import("next/image").StaticImageData;
   alt?: string;
-  purchaseLink?: string; // dynamic link
+  purchaseLink?: string;
 }
 
 export default function CourseCard({

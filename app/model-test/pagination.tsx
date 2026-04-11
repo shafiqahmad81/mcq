@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
-export default function ModelTest() {
+export default function ModelPage() {
   const tests = [
     "51th BCS Bangla",
     "50th BCS Bangla",
@@ -47,7 +47,7 @@ export default function ModelTest() {
   }, [currentPage, tests]);
 
   return (
-    <div className="min-h-screen bg-[#f3f3f3] px-6 py-7 text-[#5c5c5c]">
+    <div className="min-h-screen bg-[#f3f3f3] px-6 py-7 text-black">
       <div className="mx-auto max-w-7xl">
         {/* Top Banner */}
         <div className="rounded-2xl border border-gray-300 bg-white py-4 text-center text-2xl shadow-lg md:text-4xl">
@@ -70,7 +70,7 @@ export default function ModelTest() {
                   <span className="text-lg">{test}</span>
                   <Link
                     href="/exam"
-                    className="rounded bg-slate-500 px-3 py-1 text-sm font-semibold text-white"
+                    className="rounded bg-pink-500 px-3 py-1 text-sm font-semibold text-white transition-all hover:bg-pink-700"
                   >
                     Try Now
                   </Link>

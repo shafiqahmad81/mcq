@@ -6,7 +6,6 @@ import { X } from "lucide-react";
 export default function PaymentPage() {
 const [orderItems, setOrderItems] = useState([
   { name: "মডেল টেস্ট প্যাকেজ", price: 30 },
-  { name: "English Grammar Model Test Course", price: 20 },
 ]);
 
 const removeItem = (indexToRemove: number) => {
@@ -139,9 +138,10 @@ const removeItem = (indexToRemove: number) => {
                 described in our privacy policy.
               </p>
 
-              <button type="submit" className="w-full bg-red-500 hover:bg-red-600 text-white py-3 sm:py-4 rounded-xl mt-5 sm:mt-8 text-lg font-semibold transition cursor-pointer">
+              <button type="submit" className="w-full bg-pink-500 hover:bg-pink-600 text-white py-3 sm:py-4 rounded-xl mt-5 sm:mt-8 text-lg font-semibold transition cursor-pointer">
                 Pay With bKash
               </button>
+              <button type="submit" className="w-full bg-pink-500 hover:bg-pink-600 text-white py-3 sm:py-4 rounded-xl mt-5 sm:mt-8 text-lg font-semibold transition cursor-pointer">Add to cart</button>
             </div>
           </div>
         </div>

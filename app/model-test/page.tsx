@@ -1,10 +1,11 @@
-import ModelTest from "@/components/model-test/ModelTest";
 
+import ModelPage from "./pagination";
 
-export default function CartPage() {
+export default function Page() {
+ 
   return (
     <>
-      <ModelTest />
+      <ModelPage />
     </>
   );
 }

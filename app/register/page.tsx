@@ -1,100 +1,241 @@
 "use client";
-import PasswordInput from "@/components/input/PasswordInput";
+
+import { useState } from "react";
+import PasswordInput from "@/components/input/passwordInput";
 import Link from "next/link";
-import { FaFacebookF} from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
+export default function Page() {
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    terms: false,
+  });
 
-export default function RegisterPage() {
+  const [errors, setErrors] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    terms: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const { name, value, type, checked } = e.target;
+
+    setForm((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+
+    setErrors((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
+  };
+
+  const validate = () => {
+    const newErrors = {
+      firstName: "",
+      lastName: "",
+      phone: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+      terms: "",
+    };
+
+    let valid = true;
+
+    if (!form.firstName.trim()) {
+      newErrors.firstName = "First name is required";
+      valid = false;
+    }
+
+    if (!form.lastName.trim()) {
+      newErrors.lastName = "Last name is required";
+      valid = false;
+    }
+
+    if (!form.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+      valid = false;
+    }
+
+    if (!form.email.trim()) {
+      newErrors.email = "Email is required";
+      valid = false;
+    }
+
+    if (!form.password.trim()) {
+      newErrors.password = "Password is required";
+      valid = false;
+    }
+
+    if (!form.confirmPassword.trim()) {
+      newErrors.confirmPassword = "Confirm password is required";
+      valid = false;
+    } else if (form.password !== form.confirmPassword) {
+      newErrors.confirmPassword = "Passwords do not match";
+      valid = false;
+    }
+
+    setErrors(newErrors);
+    return valid;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (validate()) {
+      console.log("Register Success", form);
+    }
+  };
+
   return (
     <div className="min-h-[90vh] flex items-center justify-center bg-gray-100 py-4 px-4">
       <div className="w-full max-w-2xl bg-white p-6 rounded-xl shadow">
-        
         <h2 className="text-xl font-semibold mb-6 text-gray-800">
           Register
         </h2>
 
-        <form className="space-y-3 sm:space-y-4">
-          
+        <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
           {/* First Name */}
           <div>
             <label className="text-sm text-gray-600 font-medium inline-block mb-1">
-              First Name
+              First Name <span className="text-red-700">*</span>
             </label>
             <input
               type="text"
+              name="firstName"
+              value={form.firstName}
+              onChange={handleChange}
               placeholder="First Name"
               className="w-full py-2 sm:py-3 border border-gray-300 rounded-md px-3 sm:px-4 outline-none focus:border-emerald-500"
             />
+            {errors.firstName && (
+              <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>
+            )}
           </div>
 
           {/* Last Name */}
           <div>
             <label className="text-sm text-gray-600 font-medium inline-block mb-1">
-              Last Name
+              Last Name <span className="text-red-700">*</span>
             </label>
             <input
               type="text"
+              name="lastName"
+              value={form.lastName}
+              onChange={handleChange}
               placeholder="Last Name"
               className="w-full py-2 sm:py-3 border border-gray-300 rounded-md px-3 sm:px-4 outline-none focus:border-emerald-500"
             />
+            {errors.lastName && (
+              <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>
+            )}
           </div>
 
-          {/* User Name */}
+          {/* Phone */}
           <div>
             <label className="text-sm text-gray-600 font-medium inline-block mb-1">
-              Phone number
+              Phone number <span className="text-red-700">*</span>
             </label>
-
             <input
               type="tel"
+              name="phone"
+              value={form.phone}
+              onChange={handleChange}
               placeholder="Phone number"
               maxLength={11}
-              onInput={(e) => {
-                e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "");
-              }}
               className="w-full py-2 sm:py-3 border border-gray-300 rounded-md px-3 sm:px-4 outline-none focus:border-emerald-500"
             />
+            {errors.phone && (
+              <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+            )}
           </div>
 
           {/* Email */}
           <div>
             <label className="text-sm text-gray-600 font-medium inline-block mb-1">
-              E-Mail
+              E-Mail <span className="text-red-700">*</span>
             </label>
             <input
               type="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
               placeholder="E-Mail"
               className="w-full py-2 sm:py-3 border border-gray-300 rounded-md px-3 sm:px-4 outline-none focus:border-emerald-500"
             />
+            {errors.email && (
+              <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+            )}
           </div>
 
           {/* Password */}
           <div>
-            
             <PasswordInput
               label="Password"
               placeholder="Enter password"
               name="password"
+              value={form.password}
+              onChange={handleChange}
             />
+            {errors.password && (
+              <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+            )}
           </div>
 
           {/* Confirm Password */}
           <div>
-           
             <PasswordInput
               label="Password Confirmation"
               placeholder="Enter password"
-              name="password"
+              name="confirmPassword"
+              value={form.confirmPassword}
+              onChange={handleChange}
             />
+            {errors.confirmPassword && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.confirmPassword}
+              </p>
+            )}
           </div>
 
-          <div className="flex items-center gap-2">
-            <input type="checkbox" id="terms" className="w-3 sm:w-4 h-3 sm:h-4"/>
-            <label className="text-base sm:text-lg" htmlFor="terms">I agree to <Link className="text-blue-600 hover:underline" href={"trems"}>Terms & Conditions</Link></label>
+          {/* Terms */}
+          <div>
+            <div className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                id="terms"
+                name="terms"
+                checked={form.terms}
+                onChange={handleChange}
+                className="w-3 sm:w-4 h-3 sm:h-4"
+              />
+              <label className="text-base sm:text-lg">
+                I agree to
+                <Link
+                  className="text-blue-600 hover:underline"
+                  href={"terms"}
+                >
+                  Terms & Conditions
+                </Link>
+              </label>
+            </div>
+           
           </div>
 
-          {/* Button */}
           <button
             type="submit"
             className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition cursor-pointer"
@@ -102,8 +243,7 @@ export default function RegisterPage() {
             Register
           </button>
 
-          
-          {/* Divider */}
+          {/* Social */}
           <div className="flex items-center gap-3 my-4">
             <div className="flex-1 h-px bg-gray-300" />
             <span className="text-sm text-gray-500">
@@ -112,32 +252,30 @@ export default function RegisterPage() {
             <div className="flex-1 h-px bg-gray-300" />
           </div>
 
-          
-
-          {/* Social Login */}
           <div className="grid sm:grid-cols-2 gap-3">
-            {/* Google Login */}
             <button
               type="button"
-              className="w-full border border-gray-300 py-2 rounded-md flex items-center justify-center gap-3 cursor-pointer hover:bg-gray-50 transition"
+              className="w-full border border-gray-300 py-2 rounded-md flex items-center justify-center gap-3"
             >
               <FcGoogle size={20} />
               Continue with Google
             </button>
+
             <button
               type="button"
-              className="border border-gray-300 py-2 rounded-md flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-50 transition"
+              className="border border-gray-300 py-2 rounded-md flex items-center justify-center gap-2"
             >
               <FaFacebookF className="text-blue-600" />
               Facebook
             </button>
-
           </div>
-
 
           <p className="text-center text-lg text-gray-700">
             I have an account?{" "}
-            <Link href="/login" className="text-emerald-600 font-medium hover:underline cursor-pointer">
+            <Link
+              href="/login"
+              className="text-emerald-600 font-medium hover:underline"
+            >
               Login Now
             </Link>
           </p>

@@ -1,4 +1,4 @@
-export default function Terms() {
+export default function Page() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-12 font-sans">
       <h1 className="text-3xl font-bold mb-8">Terms & Conditions</h1>
