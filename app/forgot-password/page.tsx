@@ -32,9 +32,7 @@ export default function Page() {
                 Back to Login
               </Link>
             </div>
-
           </div>
-
         </div>
       </div>
     </section>
