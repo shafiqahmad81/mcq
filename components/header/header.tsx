@@ -11,7 +11,7 @@ export default function Header() {
   const links = [
     ["Home", "/"],
     ["MCQ", "/mcq"],
-    ["Result", "/result"],
+    ["Result", "/user"],
     ["Cart", "/cart"],
     ["Contact", "/contact"],
     ["Login", "/login"],
