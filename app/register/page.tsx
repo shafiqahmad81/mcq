@@ -219,7 +219,7 @@ export default function Page() {
                 className="w-3 sm:w-4 h-3 sm:h-4"
               />
               <label className="text-base sm:text-lg">
-                I agree to
+                <span>I agree to </span>
                 <Link
                   className="text-blue-600 hover:underline"
                   href={"terms"}

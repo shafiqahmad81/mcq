@@ -10,16 +10,26 @@ import Image from "next/image";
 export default function Header() {
   const [mobileMegaOpen, setMobileMegaOpen] = useState(false);
 
-  const links = [
-    ["Home", "/"],
-    ["MCQ", "/mcq"],
-    ["Result", "/user"],
-    ["Cart", "/cart"],
-    ["Contact", "/contact"],
-    ["Login", "/login"],
+  type MenuItem = [string, string];
+
+  type MegaMenuSection = {
+    items: MenuItem[];
+  };
+  type LinkItem = {
+    name: string;
+    href: string;
+  };
+
+  const links: LinkItem[] = [
+    { name: "Home", href: "/" },
+    { name: "MCQ", href: "/mcq" },
+    { name: "Result", href: "/user" },
+    { name: "Cart", href: "/cart" },
+    { name: "Contact", href: "/contact" },
+    { name: "Login", href: "/login" },
   ];
 
-  const megaMenu = [
+  const megaMenu: MegaMenuSection[] = [
     {
       items: [
         ["প্রিলি প্রস্তুতি", "/category"],
@@ -131,13 +141,13 @@ export default function Header() {
                   )}
                 </div>
 
-                {links.slice(2).map(([name, href]) => (
+                {links.slice(2).map((link) => (
                   <Link
-                    key={name}
-                    href={href}
+                    key={link.name}
+                    href={link.href}
                     className="hover:text-blue-600"
                   >
-                    {name}
+                    {link.name}
                   </Link>
                 ))}
               </div>
