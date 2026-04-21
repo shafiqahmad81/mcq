@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { StaticImageData } from "next/image";
 import Link from "next/link";
 import Image1 from "../assets/image/image1.jpg"
 import Header from "../components/header/header";
@@ -20,12 +19,11 @@ const courses = [
   { title: "Javascript Advanced", price: "$50", image: Image1, link: "/payment" },
 ];
 type Media =
-  | { type: "image"; src: StaticImageData }
-  | { type: "video"; src: string };
+   { type: "image" | "video"; src: string }
 
 const media: Media = {
   type: "image",
-  src: Image1,
+  src: Image1.src,
 };
 
 export default function HomePage() {
@@ -50,15 +48,15 @@ export default function HomePage() {
                 Start Practice
               </Link>
             </div>
-             <div className="w-full max-w-md px-5 py-5 md:py-10 rounded-3xl bg-blue-100 flex items-center justify-center">
+             <div className="w-full lg:max-w-100 px-5 py-5 md:py-6 rounded-3xl bg-blue-100 flex items-center justify-center">
 
                 {media.type === "image" ? (
-                  <div className="max-w-60">
+                  <div className="max-w-80">
                     <Image
                       src={media.src}
                       alt="hero media"
-                      width={240}
-                      height={240}
+                      width={400}
+                      height={400}
                       className="object-contain"
                     />
                   </div>
@@ -66,7 +64,7 @@ export default function HomePage() {
                   <video
                     src={media.src}
                     controls
-                    className="w-60 object-cover rounded-xl"
+                    className="w-100 object-cover rounded-xl"
                   />
                 )}
 
@@ -86,21 +84,25 @@ export default function HomePage() {
                     title="বাংলা"
                     description="বাংলাদেশের ইতিহাস হাজার বছরের সমৃদ্ধ ঐতিহ্যে ভরা..."
                     href="/model-test"
+                    image={Image1}
                   />
                   <Card
                     title="English"
                     description="বাংলাদেশের ইতিহাস হাজার বছরের সমৃদ্ধ ঐতিহ্যে ভরা..."
                     href="/model-test"
+                    image={Image1}
                   />
                   <Card
                     title="গণিত"
                     description="বাংলাদেশের ইতিহাস হাজার বছরের সমৃদ্ধ ঐতিহ্যে ভরা..."
                     href="/model-test"
+                    image={Image1}
                   />
                   <Card
                     title="সাধারণ জ্ঞান"
                     description="বাংলাদেশের ইতিহাস হাজার বছরের সমৃদ্ধ ঐতিহ্যে ভরা..."
                     href="/model-test"
+                    image={Image1}
                   />
               </div>
             </div>
