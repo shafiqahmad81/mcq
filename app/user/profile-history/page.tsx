@@ -73,7 +73,7 @@ export default function ProfilePage() {
         My Profile
       </h1>
 
-      <div className="bg-white border rounded-2xl shadow-lg p-6">
+      <div className="bg-white border border-black/10 rounded-2xl shadow-lg p-6">
 
         {/* IMAGE */}
         <div className="flex flex-col items-center">
@@ -160,23 +160,18 @@ export default function ProfilePage() {
               name="name"
               value={form.name}
               onChange={handleChange}
-              className="w-full border px-4 py-3 rounded-xl"
+              className="w-full border border-black/10 px-4 py-3 rounded-xl outline-green-500"
               placeholder="Name"
             />
             {errors.name && (
               <p className="text-red-500 text-sm">{errors.name}</p>
             )}
 
-            {/* EMAIL READ ONLY */}
-            <div className="w-full border px-4 py-3 rounded-xl bg-gray-100 text-gray-500">
-              {profile.email} (cannot change)
-            </div>
-
             <input
               name="phone"
               value={form.phone}
               onChange={handleChange}
-              className="w-full border px-4 py-3 rounded-xl"
+              className="w-full border border-black/10 px-4 py-3 rounded-xl outline-green-500"
               placeholder="Phone"
             />
             {errors.phone && (
@@ -187,7 +182,7 @@ export default function ProfilePage() {
             <div className="flex gap-3 mt-4">
               <button
                 type="submit"
-                className="w-full bg-emerald-500 text-white py-3 rounded-xl hover:bg-emerald-600"
+                className="w-full bg-emerald-500 text-white py-3 rounded-xl hover:bg-emerald-600 cursor-pointer"
               >
                 Save
               </button>
@@ -195,7 +190,7 @@ export default function ProfilePage() {
               <button
                 type="button"
                 onClick={() => setIsEditing(false)}
-                className="w-full bg-gray-200 py-3 rounded-xl"
+                className="w-full bg-gray-200 py-3 rounded-xl cursor-pointer"
               >
                 Cancel
               </button>

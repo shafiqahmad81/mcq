@@ -55,7 +55,7 @@ export default function ChangePasswordPage() {
   return (
     <div className="w-full py-6 lg:px-6">
 
-      <div className="w-full bg-white border shadow-lg rounded-2xl p-6">
+      <div className="w-full bg-white border border-black/10 shadow-lg rounded-2xl p-6">
 
         {/* TITLE */}
         <div className="text-center mb-6">
@@ -84,7 +84,7 @@ export default function ChangePasswordPage() {
               value={form.currentPassword}
               onChange={handleChange}
               placeholder="Current Password"
-              className="w-full border px-4 py-3 rounded-xl pr-10"
+              className="w-full border border-black/10 outline-green-500 px-4 py-3 rounded-xl pr-10"
             />
 
             <button
@@ -92,7 +92,7 @@ export default function ChangePasswordPage() {
               onClick={() =>
                 setShow({ ...show, current: !show.current })
               }
-              className="absolute right-3 top-3 text-gray-500"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
             >
               {show.current ? <EyeOff size={18} /> : <Eye size={18} />}
             </button>
@@ -112,7 +112,7 @@ export default function ChangePasswordPage() {
               value={form.newPassword}
               onChange={handleChange}
               placeholder="New Password"
-              className="w-full border px-4 py-3 rounded-xl pr-10"
+              className="w-full border border-black/10 outline-green-500 px-4 py-3 rounded-xl pr-10"
             />
 
             <button
@@ -120,7 +120,7 @@ export default function ChangePasswordPage() {
               onClick={() =>
                 setShow({ ...show, new: !show.new })
               }
-              className="absolute right-3 top-3 text-gray-500"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
             >
               {show.new ? <EyeOff size={18} /> : <Eye size={18} />}
             </button>
@@ -140,7 +140,7 @@ export default function ChangePasswordPage() {
               value={form.confirmPassword}
               onChange={handleChange}
               placeholder="Confirm Password"
-              className="w-full border px-4 py-3 rounded-xl pr-10"
+              className="w-full border border-black/10 outline-green-500 px-4 py-3 rounded-xl pr-10"
             />
 
             <button
@@ -148,7 +148,7 @@ export default function ChangePasswordPage() {
               onClick={() =>
                 setShow({ ...show, confirm: !show.confirm })
               }
-              className="absolute right-3 top-3 text-gray-500"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
             >
               {show.confirm ? <EyeOff size={18} /> : <Eye size={18} />}
             </button>

@@ -24,7 +24,7 @@ export default function SidebarWrapper() {
 
       {/* Sidebar */}
       <aside
-        className={`fixed left-0 top-14 md:top-20 z-40 h-[90vh] overflow-y-auto w-75 border-r border-gray-200 bg-gray-200 p-4 transition-transform duration-300 ease-in-out sm:p-6 lg:static lg:translate-x-0 flex flex-col ${
+        className={`fixed left-0 top-14 z-40 h-[90vh] overflow-y-auto w-75 border-r border-gray-200 bg-gray-200 p-4 transition-transform duration-300 ease-in-out sm:p-6 lg:static lg:translate-x-0 flex flex-col ${
           menuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -58,7 +58,7 @@ export default function SidebarWrapper() {
 
           <Link
             href="/user/course-history"
-            className={`block rounded-xl px-4 py-3 text-sm ${
+            className={`block rounded-xl px-4 py-3 text-sm font-medium ${
               isActive("/user/course-history")
                 ? "bg-emerald-50 text-emerald-600"
                 : "text-gray-600 hover:bg-gray-100"
@@ -69,7 +69,7 @@ export default function SidebarWrapper() {
 
           <Link
             href="/user/payment-history"
-            className={`block rounded-xl px-4 py-3 text-sm ${
+            className={`block rounded-xl px-4 py-3 text-sm font-medium ${
               isActive("/user/payment-history")
                 ? "bg-emerald-50 text-emerald-600"
                 : "text-gray-600 hover:bg-gray-100"
@@ -80,7 +80,7 @@ export default function SidebarWrapper() {
 
           <Link
             href="/user/profile-history"
-            className={`block rounded-xl px-4 py-3 text-sm ${
+            className={`block rounded-xl px-4 py-3 text-sm font-medium ${
               isActive("/user/profile-history")
                 ? "bg-emerald-50 text-emerald-600"
                 : "text-gray-600 hover:bg-gray-100"
@@ -90,7 +90,7 @@ export default function SidebarWrapper() {
           </Link>
           <Link
             href="/user/change-password"
-            className={`block rounded-xl px-4 py-3 text-sm ${
+            className={`block rounded-xl px-4 py-3 text-sm font-medium ${
               isActive("/user/change-password")
                 ? "bg-emerald-50 text-emerald-600"
                 : "text-gray-600 hover:bg-gray-100"

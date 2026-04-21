@@ -4,6 +4,8 @@ import Link from "next/link";
 import MobileMenu from "./mobileMenu";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
+import Logo from "../../assets/logo/mcq-logo.png"
+import Image from "next/image";
 
 export default function Header() {
   const [mobileMegaOpen, setMobileMegaOpen] = useState(false);
@@ -22,7 +24,7 @@ export default function Header() {
       items: [
         ["প্রিলি প্রস্তুতি", "/category"],
         ["ব্যাংক নিয়োগ", "/category"],
-        
+
       ],
     },
     {
@@ -46,13 +48,20 @@ export default function Header() {
           <nav className="">
             <div className="py-3 flex justify-between items-center ">
               {/* Logo */}
-              <h1 className="text-2xl font-bold text-pink-500">
-                <Link href="/">MCQ Master</Link>
-              </h1>
+              <div className="w-full max-w-24 sm:max-w-32">
+                <Link href="/">
+                  <Image
+                    src={Logo}
+                    alt="Logo"
+                    width={128}
+                    height={128}
+                  />
+                </Link>
+              </div>
 
               {/* Desktop Menu */}
               <div className="hidden md:flex gap-6 items-center">
-                <Link href="/" className="hover:text-blue-600">
+                <Link href="/" className="transition-all hover:text-blue-600">
                   Home
                 </Link>
 
@@ -71,7 +80,7 @@ export default function Header() {
                               <li key={name}>
                                 <Link
                                   href={href}
-                                  className="text-gray-600 hover:text-blue-600 transition"
+                                  className="text-gray-600 hover:text-blue-600 transition-all"
                                 >
                                   {name}
                                 </Link>
@@ -93,9 +102,8 @@ export default function Header() {
                     MCQ
                     <ChevronDown
                       size={18}
-                      className={`transition-transform ${
-                        mobileMegaOpen ? "rotate-180" : ""
-                      }`}
+                      className={`transition-transform ${mobileMegaOpen ? "rotate-180" : ""
+                        }`}
                     />
                   </button>
 

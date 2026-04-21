@@ -31,7 +31,7 @@ export default function PaymentHistory() {
       <h2 className="text-2xl font-bold mb-6">Payment History</h2>
 
       {/* Desktop Table */}
-      <div className="block overflow-x-auto rounded-2xl border bg-white">
+      <div className="block overflow-x-auto rounded-2xl border border-black/10 bg-white">
         <table className="w-full text-sm">
           <thead className="bg-gray-50 text-gray-600">
             <tr>
@@ -45,7 +45,7 @@ export default function PaymentHistory() {
 
           <tbody>
             {payments.map((item) => (
-              <tr key={item.id} className="border-t hover:bg-gray-50">
+              <tr key={item.id} className="border-t border-black/10 hover:bg-gray-50">
                 <td className="px-4 py-3 font-medium">{item.id}</td>
                 <td className="px-4 py-3">{item.course}</td>
                 <td className="px-4 py-3">৳ {item.amount}</td>
