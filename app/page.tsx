@@ -1,4 +1,5 @@
-
+import Image from "next/image";
+import { StaticImageData } from "next/image";
 import Link from "next/link";
 import Image1 from "../assets/image/image1.jpg"
 import Header from "../components/header/header";
@@ -18,6 +19,14 @@ const courses = [
   { title: "Next.js Advanced", price: "$69", image: Image1, link: "/payment" },
   { title: "Javascript Advanced", price: "$50", image: Image1, link: "/payment" },
 ];
+type Media =
+  | { type: "image"; src: StaticImageData }
+  | { type: "video"; src: string };
+
+const media: Media = {
+  type: "image",
+  src: Image1,
+};
 
 export default function HomePage() {
   return (
@@ -41,8 +50,26 @@ export default function HomePage() {
                 Start Practice
               </Link>
             </div>
-            <div className="w-full max-w-md py-10 md:py-20 rounded-3xl bg-blue-100 flex items-center justify-center">
-              <span className="text-6xl">📘</span>
+             <div className="w-full max-w-md px-5 py-5 md:py-10 rounded-3xl bg-blue-100 flex items-center justify-center">
+
+                {media.type === "image" ? (
+                  <div className="max-w-60">
+                    <Image
+                      src={media.src}
+                      alt="hero media"
+                      width={240}
+                      height={240}
+                      className="object-contain"
+                    />
+                  </div>
+                ) : (
+                  <video
+                    src={media.src}
+                    controls
+                    className="w-60 object-cover rounded-xl"
+                  />
+                )}
+
             </div>
           </div>
         </section>

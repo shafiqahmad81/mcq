@@ -58,7 +58,7 @@ export default function Header() {
 
                 {/* Desktop Mega Menu */}
                 <div className="hidden md:block relative group">
-                  <button className="group-hover:text-blue-600 py-4 flex items-center gap-1 cursor-pointer">
+                  <button className="group-hover:text-blue-600 flex items-center gap-1 cursor-pointer">
                     MCQ <ChevronDown size={18} />
                   </button>
 

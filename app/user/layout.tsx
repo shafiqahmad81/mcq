@@ -1,6 +1,7 @@
 import Footer from "@/components/footer/footerSection";
 import Header from "@/components/header/header";
 import type { Metadata } from "next";
+import SidebarWrapper from "./sidebar";
 
 export const metadata: Metadata = {
     title: "User Dashboard",
@@ -15,7 +16,19 @@ export default function ArchiveLayout({
     return (
         <>
             <Header />
-                {children}
+                <section>
+                    <div className="container">
+
+                            <div className="flex flex-col lg:flex-row">
+
+                                {/* Sidebar */}
+                                <SidebarWrapper />
+
+                                {/* MAIN CONTENT */}
+                                {children}
+                            </div>
+                    </div>
+                </section>
             <Footer />
         </>
     );
