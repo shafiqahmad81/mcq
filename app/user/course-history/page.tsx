@@ -3,92 +3,52 @@
 import { useState } from "react";
 import Image from "next/image";
 import Image1 from "@/assets/image/image1.jpg";
+import ReactPaginate from "react-paginate";
 
 const courses = [
-    {
-        id: 1,
-        title: "Complete Web Development",
-        progress: 80,
-        status: "Ongoing",
-        image: Image1,
-    },
-    {
-        id: 2,
-        title: "React & Next.js Mastery",
-        progress: 100,
-        status: "Completed",
-        image: Image1,
-    },
-    {
-        id: 3,
-        title: "Tailwind CSS Advanced",
-        progress: 45,
-        status: "Ongoing",
-        image: Image1,
-    },
-    {
-        id: 4,
-        title: "JavaScript Mastery",
-        progress: 70,
-        status: "Ongoing",
-        image: Image1,
-    },
-    {
-        id: 5,
-        title: "Node.js API Mastery",
-        progress: 60,
-        status: "Ongoing",
-        image: Image1,
-    },
-    {
-        id: 6,
-        title: "MongoDB Basics",
-        progress: 90,
-        status: "Completed",
-        image: Image1,
-    },
-    {
-        id: 7,
-        title: "TypeScript Guide",
-        progress: 50,
-        status: "Ongoing",
-        image: Image1,
-    },
-    {
-        id: 8,
-        title: "Next.js Advanced",
-        progress: 100,
-        status: "Completed",
-        image: Image1,
-    },
+    { id: 1, title: "Complete Web Development", progress: 80, status: "Ongoing", image: Image1 },
+    { id: 2, title: "React & Next.js Mastery", progress: 100, status: "Completed", image: Image1 },
+    { id: 3, title: "Tailwind CSS Advanced", progress: 45, status: "Ongoing", image: Image1 },
+    { id: 4, title: "JavaScript Mastery", progress: 70, status: "Ongoing", image: Image1 },
+    { id: 5, title: "Node.js API Mastery", progress: 60, status: "Ongoing", image: Image1 },
+    { id: 6, title: "MongoDB Basics", progress: 90, status: "Completed", image: Image1 },
+    { id: 7, title: "TypeScript Guide", progress: 50, status: "Ongoing", image: Image1 },
+    { id: 8, title: "Next.js Advanced", progress: 100, status: "Completed", image: Image1 },
 ];
 
 export default function CourseHistory() {
-    const [currentPage, setCurrentPage] = useState(1);
+    const [itemOffset, setItemOffset] = useState(0);
 
-    const perPage = 6;
+    const perPage = 3;
 
-    const totalPages = Math.ceil(courses.length / perPage);
+    const endOffset = itemOffset + perPage;
+    const currentItems = courses.slice(itemOffset, endOffset);
 
-    const start = (currentPage - 1) * perPage;
+    const pageCount = Math.ceil(courses.length / perPage);
 
-    const paginatedCourses = courses.slice(start, start + perPage);
+    const handlePageClick = (event: any) => {
+        const newOffset = (event.selected * perPage) % courses.length;
+        setItemOffset(newOffset);
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
 
     return (
-        <div className="lg:p-6 w-full">
+        <div className="py-6 lg:px-6 w-full">
 
             {/* TITLE */}
             <h1 className="text-2xl font-bold mb-6">
                 Course History
             </h1>
 
-            {/* COURSE GRID */}
+            {/* GRID */}
             <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                {paginatedCourses.map((course) => (
+                {currentItems.map((course) => (
                     <div
                         key={course.id}
                         className="rounded-2xl bg-white shadow-sm border border-black/10 p-4 hover:shadow-md transition"
                     >
+
                         {/* IMAGE */}
                         <div className="relative aspect-video w-full overflow-hidden rounded-xl">
                             <Image
@@ -105,7 +65,6 @@ export default function CourseHistory() {
                                 {course.title}
                             </h3>
 
-                            {/* STATUS */}
                             <span
                                 className={`inline-block mt-2 px-3 py-1 text-xs rounded-full ${course.status === "Completed"
                                         ? "bg-green-100 text-green-600"
@@ -137,47 +96,21 @@ export default function CourseHistory() {
                 ))}
             </div>
 
-            {/* PAGINATION (your requested design) */}
-            <div className="mt-6 flex flex-wrap items-center justify-end gap-2">
-
-                {/* Previous */}
-                <button
-                    onClick={() =>
-                        setCurrentPage((p) => Math.max(p - 1, 1))
-                    }
-                    className="px-3 py-2 cursor-pointer"
-                >
-                    Previous
-                </button>
-
-                {/* Page Numbers */}
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                    (page) => (
-                        <button
-                            key={page}
-                            onClick={() => setCurrentPage(page)}
-                            className={`rounded px-4 py-2 shadow cursor-pointer ${currentPage === page
-                                    ? "border border-gray-400 bg-white"
-                                    : "bg-transparent"
-                                }`}
-                        >
-                            {page}
-                        </button>
-                    )
-                )}
-
-                {/* Next */}
-                <button
-                    onClick={() =>
-                        setCurrentPage((p) =>
-                            Math.min(p + 1, totalPages)
-                        )
-                    }
-                    className="px-3 py-2 cursor-pointer"
-                >
-                    Next
-                </button>
-
+            {/* PAGINATION */}
+            <div className="mt-6 flex justify-end">
+                <ReactPaginate
+                    breakLabel="..."
+                    nextLabel="Next >"
+                    previousLabel="< Prev"
+                    pageCount={pageCount}
+                    onPageChange={handlePageClick}
+                    containerClassName="flex items-center gap-2 select-none"
+                    pageLinkClassName="block px-3 py-1 border rounded cursor-pointer hover:bg-gray-200 transition"
+                    activeLinkClassName="bg-pink-500 text-white border-pink-500"
+                    previousLinkClassName="block px-3 py-1 border rounded cursor-pointer hover:bg-gray-200 transition"
+                    nextLinkClassName="block px-3 py-1 border rounded cursor-pointer hover:bg-gray-200 transition"
+                    disabledClassName="opacity-50 cursor-not-allowed"
+                />
             </div>
 
         </div>

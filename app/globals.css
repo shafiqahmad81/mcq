@@ -45,3 +45,18 @@ body {
         @apply text-sm sm:text-base lg:leading-6 font-semibold
     }
 }
+
+ul.react-paginate {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.react-paginate li {
+  cursor: pointer;
+}
+.pagination a {
+  display: block;
+}

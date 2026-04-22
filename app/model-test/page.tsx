@@ -1,5 +1,5 @@
 
-import ModelPage from "./pagination";
+import ModelPage from "./model";
 
 export default function Page() {
  

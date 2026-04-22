@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import ReactPaginate from "react-paginate";
 
 export default function McqHistoryPage() {
   const completedMcqs = [
@@ -16,21 +17,27 @@ export default function McqHistoryPage() {
     { id: 8, title: "CSS Advanced MCQ", total: 40, score: 32, date: "2026-04-20" },
   ];
 
-  // STATE
-  const [currentPage, setCurrentPage] = useState(1);
+  const [itemOffset, setItemOffset] = useState(0);
   const [search, setSearch] = useState("");
 
   const perPage = 4;
 
+  // filter
   const filteredMcqs = completedMcqs.filter((mcq) =>
     mcq.title.toLowerCase().includes(search.toLowerCase())
   );
 
-  const totalPages = Math.ceil(filteredMcqs.length / perPage);
+  const endOffset = itemOffset + perPage;
+  const currentItems = filteredMcqs.slice(itemOffset, endOffset);
 
-  const start = (currentPage - 1) * perPage;
+  const pageCount = Math.ceil(filteredMcqs.length / perPage);
 
-  const paginatedMcqs = filteredMcqs.slice(start, start + perPage);
+  const handlePageClick = (event: any) => {
+    const newOffset = (event.selected * perPage) % filteredMcqs.length;
+    setItemOffset(newOffset);
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <main className="lg:px-6 py-6 w-full">
@@ -40,57 +47,44 @@ export default function McqHistoryPage() {
         Completed MCQ History
       </h1>
 
-      {/* SEARCH BOX */}
-      <form className="mb-6">
-        <input
-          type="text"
-          placeholder="Search MCQ..."
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value);
-            setCurrentPage(1);
-          }}
-          className="w-full sm:w-80 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400"
-        />
-      </form>
+      {/* SEARCH */}
+      <input
+        type="text"
+        placeholder="Search MCQ..."
+        value={search}
+        onChange={(e) => {
+          setSearch(e.target.value);
+          setItemOffset(0);
+        }}
+        className="w-full sm:w-80 px-4 py-2 border border-gray-300 rounded-lg mb-6 outline-pink-500"
+      />
 
       {/* LIST */}
       <div className="space-y-4">
-        {paginatedMcqs.map((mcq) => (
+        {currentItems.map((mcq) => (
           <div
             key={mcq.id}
             className="border border-black/10 rounded-2xl bg-white p-5 shadow-sm hover:shadow-md transition"
           >
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-
-              {/* LEFT */}
+            <div className="flex justify-between">
               <div>
-                <h2 className="text-lg font-semibold text-gray-800">
-                  {mcq.title}
-                </h2>
-
-                <p className="text-sm text-gray-500 mt-1">
-                  Date: {mcq.date}
-                </p>
+                <h2 className="text-lg font-semibold">{mcq.title}</h2>
+                <p className="text-sm text-gray-500 mt-1">{mcq.date}</p>
               </div>
 
-              {/* RIGHT */}
               <div className="text-right">
-                <p className="text-sm text-gray-600">Score</p>
                 <p className="text-xl font-bold text-emerald-600">
                   {mcq.score} / {mcq.total}
                 </p>
               </div>
             </div>
 
-            {/* BUTTON */}
             <div className="mt-4">
               <Link
                 href="/view"
                 className="text-sm text-blue-600 hover:underline inline-flex items-center gap-1"
               >
-                View Details
-                <ArrowRight size={16} />
+                View Details <ArrowRight size={16} />
               </Link>
             </div>
           </div>
@@ -98,47 +92,20 @@ export default function McqHistoryPage() {
       </div>
 
       {/* PAGINATION */}
-      <div className="mt-6 flex flex-wrap items-center justify-end gap-2">
-
-        {/* Previous */}
-        <button
-          onClick={() =>
-            setCurrentPage((p) => Math.max(p - 1, 1))
-          }
-          className="px-3 py-2 cursor-pointer"
-        >
-          Previous
-        </button>
-
-        {/* Page Numbers */}
-        {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-          (page) => (
-            <button
-              key={page}
-              onClick={() => setCurrentPage(page)}
-              className={`rounded px-4 py-2 shadow cursor-pointer ${
-                currentPage === page
-                  ? "border border-gray-400 bg-white"
-                  : "bg-transparent"
-              }`}
-            >
-              {page}
-            </button>
-          )
-        )}
-
-        {/* Next */}
-        <button
-          onClick={() =>
-            setCurrentPage((p) =>
-              Math.min(p + 1, totalPages)
-            )
-          }
-          className="px-3 py-2 cursor-pointer"
-        >
-          Next
-        </button>
-
+      <div className="mt-6 flex justify-end">
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel="Next >"
+          previousLabel="< Prev"
+          pageCount={pageCount}
+          onPageChange={handlePageClick}
+          containerClassName="flex items-center gap-2 select-none"
+          pageLinkClassName="block px-3 py-1 border rounded cursor-pointer hover:bg-gray-200 transition"
+          activeLinkClassName="bg-pink-500 text-white border-pink-500"
+          previousLinkClassName="block px-3 py-1 border rounded cursor-pointer hover:bg-gray-200 transition"
+          nextLinkClassName="block px-3 py-1 border rounded cursor-pointer hover:bg-gray-200 transition"
+          disabledClassName="opacity-50 cursor-not-allowed"
+        />
       </div>
 
     </main>

@@ -48,10 +48,10 @@ export default function HomePage() {
                 Start Practice
               </Link>
             </div>
-             <div className="w-full lg:max-w-100 px-5 py-5 md:py-6 rounded-3xl bg-blue-100 flex items-center justify-center">
+             <div className="w-full lg:max-w-100 px-5 py-5 md:py-6 rounded-2xl bg-blue-100 flex items-center justify-center">
 
                 {media.type === "image" ? (
-                  <div className="max-w-80">
+                  <div className="max-w-100 rounded-xl overflow-hidden">
                     <Image
                       src={media.src}
                       alt="hero media"
